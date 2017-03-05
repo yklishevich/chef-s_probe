@@ -24,8 +24,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-//#define DRAWER_WIDTH ([[UIScreen mainScreen] bounds].size.width * 0.7f)
-
 CGFloat const MMDrawerDefaultWidth = 280.0f;
 CGFloat const MMDrawerDefaultAnimationVelocity = 840.0f;
 
@@ -182,12 +180,8 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
 }
 
 -(void)commonSetup{
-    
-    CGFloat width = [[UIScreen mainScreen] bounds].size.width * 0.8;
-    //MMDrawerDefaultWidth = width;
-    
-    [self setMaximumLeftDrawerWidth:width];
-    [self setMaximumRightDrawerWidth:width];
+    [self setMaximumLeftDrawerWidth:MMDrawerDefaultWidth];
+    [self setMaximumRightDrawerWidth:MMDrawerDefaultWidth];
     
     [self setAnimationVelocity:MMDrawerDefaultAnimationVelocity];
     

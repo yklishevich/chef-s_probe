@@ -61,11 +61,11 @@
 		52FEDD6B1D8ACFCE002DC18A /* LeftSideMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FEDD6A1D8ACFCE002DC18A /* LeftSideMenuViewCell.m */; };
 		BEB62FE51E68B8F1006DD307 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB62FE41E68B8F1006DD307 /* Reachability.m */; };
 		BEB62FE71E68B912006DD307 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB62FE61E68B912006DD307 /* SystemConfiguration.framework */; };
-		C75F2AEA3290FC089DD46050 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7599E9CEDCBA1025067271 /* libPods.a */; };
+		DC341729134F668CF21254F9 /* libPods-Chefs_probe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2113F0FEECE16B3CADA8172A /* libPods-Chefs_probe.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1380C829FAAD92ED6EDDFA5C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2113F0FEECE16B3CADA8172A /* libPods-Chefs_probe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chefs_probe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C7CFF11E6AC68F00BA185D /* AlarmScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmScheduler.h; path = HelperClasses/AlarmScheduler.h; sourceTree = "<group>"; };
 		47C7CFF21E6AC68F00BA185D /* AlarmScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmScheduler.m; path = HelperClasses/AlarmScheduler.m; sourceTree = "<group>"; };
 		47C7CFF51E6ACC2900BA185D /* beep1dot5sec.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep1dot5sec.mp3; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		52D39C931E257AAD00694506 /* CZPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZPicker.h; sourceTree = "<group>"; };
 		52D39C941E257AAD00694506 /* CZPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZPickerView.h; sourceTree = "<group>"; };
 		52D39C951E257AAD00694506 /* CZPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZPickerView.m; sourceTree = "<group>"; };
-		52FEDD4A1D8AB06B002DC18A /* Chef's probe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chef's probe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FEDD4A1D8AB06B002DC18A /* Chefs_probe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefs_probe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FEDD4E1D8AB06B002DC18A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52FEDD501D8AB06C002DC18A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52FEDD511D8AB06C002DC18A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -169,11 +169,11 @@
 		52FEDD651D8ACED1002DC18A /* LeftSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSideMenuViewController.m; sourceTree = "<group>"; };
 		52FEDD691D8ACFCE002DC18A /* LeftSideMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftSideMenuViewCell.h; path = CustomCells/LeftSideMenuViewCell.h; sourceTree = "<group>"; };
 		52FEDD6A1D8ACFCE002DC18A /* LeftSideMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftSideMenuViewCell.m; path = CustomCells/LeftSideMenuViewCell.m; sourceTree = "<group>"; };
-		8D7599E9CEDCBA1025067271 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A16E3AA176E7909D3D4262DE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		89486F2CAA6FE3CE328FE499 /* Pods-Chefs_probe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefs_probe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chefs_probe/Pods-Chefs_probe.debug.xcconfig"; sourceTree = "<group>"; };
 		BEB62FE31E68B8F1006DD307 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachibility/Reachability.h; sourceTree = "<group>"; };
 		BEB62FE41E68B8F1006DD307 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachibility/Reachability.m; sourceTree = "<group>"; };
 		BEB62FE61E68B912006DD307 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FA3F9B4D1048624FCD8CD6DB /* Pods-Chefs_probe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefs_probe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chefs_probe/Pods-Chefs_probe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +183,7 @@
 			files = (
 				BEB62FE71E68B912006DD307 /* SystemConfiguration.framework in Frameworks */,
 				52A52FE31D981A12004FE9B5 /* CoreBluetooth.framework in Frameworks */,
-				C75F2AEA3290FC089DD46050 /* libPods.a in Frameworks */,
+				DC341729134F668CF21254F9 /* libPods-Chefs_probe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,15 +361,15 @@
 			children = (
 				52FEDD4C1D8AB06B002DC18A /* MeasureTemprature */,
 				52FEDD4B1D8AB06B002DC18A /* Products */,
-				FC89C285C8DE606C1D4D28B9 /* Pods */,
 				D6B5801239C33C3BA3D8DB5A /* Frameworks */,
+				ADAF653F77AB102E1F70E170 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		52FEDD4B1D8AB06B002DC18A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52FEDD4A1D8AB06B002DC18A /* Chef's probe.app */,
+				52FEDD4A1D8AB06B002DC18A /* Chefs_probe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -440,6 +440,15 @@
 			name = CustomCells;
 			sourceTree = "<group>";
 		};
+		ADAF653F77AB102E1F70E170 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89486F2CAA6FE3CE328FE499 /* Pods-Chefs_probe.debug.xcconfig */,
+				FA3F9B4D1048624FCD8CD6DB /* Pods-Chefs_probe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BEB62FE21E68B8D0006DD307 /* Reachibility */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,41 +463,32 @@
 			children = (
 				BEB62FE61E68B912006DD307 /* SystemConfiguration.framework */,
 				52A52FE21D981A12004FE9B5 /* CoreBluetooth.framework */,
-				8D7599E9CEDCBA1025067271 /* libPods.a */,
+				2113F0FEECE16B3CADA8172A /* libPods-Chefs_probe.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FC89C285C8DE606C1D4D28B9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A16E3AA176E7909D3D4262DE /* Pods.debug.xcconfig */,
-				1380C829FAAD92ED6EDDFA5C /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52FEDD491D8AB06A002DC18A /* Chef's probe */ = {
+		52FEDD491D8AB06A002DC18A /* Chefs_probe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52FEDD611D8AB06C002DC18A /* Build configuration list for PBXNativeTarget "Chef's probe" */;
+			buildConfigurationList = 52FEDD611D8AB06C002DC18A /* Build configuration list for PBXNativeTarget "Chefs_probe" */;
 			buildPhases = (
-				681A7D01DEC8974D16D2EE61 /* Check Pods Manifest.lock */,
+				AE462CA680C125BC11E82EEF /* [CP] Check Pods Manifest.lock */,
 				52FEDD461D8AB06A002DC18A /* Sources */,
 				52FEDD471D8AB06A002DC18A /* Frameworks */,
 				52FEDD481D8AB06A002DC18A /* Resources */,
-				88451FF58192E482F66D6C24 /* Embed Pods Frameworks */,
-				B9ECD00A34E23DED14F4D8F8 /* Copy Pods Resources */,
+				01A86A90C9CD2C6E8F3541C6 /* [CP] Embed Pods Frameworks */,
+				22B0EE00A0D23085179C533E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Chef's probe";
+			name = Chefs_probe;
 			productName = MeasureTemprature;
-			productReference = 52FEDD4A1D8AB06B002DC18A /* Chef's probe.app */;
+			productReference = 52FEDD4A1D8AB06B002DC18A /* Chefs_probe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -525,7 +525,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52FEDD491D8AB06A002DC18A /* Chef's probe */,
+				52FEDD491D8AB06A002DC18A /* Chefs_probe */,
 			);
 		};
 /* End PBXProject section */
@@ -545,49 +545,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		681A7D01DEC8974D16D2EE61 /* Check Pods Manifest.lock */ = {
+		01A86A90C9CD2C6E8F3541C6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chefs_probe/Pods-Chefs_probe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		88451FF58192E482F66D6C24 /* Embed Pods Frameworks */ = {
+		22B0EE00A0D23085179C533E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chefs_probe/Pods-Chefs_probe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B9ECD00A34E23DED14F4D8F8 /* Copy Pods Resources */ = {
+		AE462CA680C125BC11E82EEF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -756,7 +756,7 @@
 		};
 		52FEDD621D8AB06C002DC18A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A16E3AA176E7909D3D4262DE /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 89486F2CAA6FE3CE328FE499 /* Pods-Chefs_probe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -774,7 +774,7 @@
 		};
 		52FEDD631D8AB06C002DC18A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1380C829FAAD92ED6EDDFA5C /* Pods.release.xcconfig */;
+			baseConfigurationReference = FA3F9B4D1048624FCD8CD6DB /* Pods-Chefs_probe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -802,7 +802,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52FEDD611D8AB06C002DC18A /* Build configuration list for PBXNativeTarget "Chef's probe" */ = {
+		52FEDD611D8AB06C002DC18A /* Build configuration list for PBXNativeTarget "Chefs_probe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52FEDD621D8AB06C002DC18A /* Debug */,
