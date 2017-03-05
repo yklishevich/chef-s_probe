@@ -1,0 +1,10 @@
+platform :ios, '7.0'
+
+pod 'MBProgressHUD'
+pod 'RMMapper'
+pod 'TPKeyboardAvoiding'
+pod 'MMDrawerController'
+pod 'FDTake'
+pod 'AFNetworking'
+pod 'youtube-ios-player-helper'
+pod 'ActionSheetPicker-3.0'
