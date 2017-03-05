@@ -195,6 +195,7 @@
 #pragma mark service discovery
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
+    DebugLog(@"");
     if (error) {
         [self cleanup];
     }
@@ -206,6 +207,7 @@
 
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverIncludedServicesForService:(CBService *)service error:(NSError *)error
 {
+    DebugLog(@"");
     if (error) {
         [self cleanup];
     }
@@ -221,6 +223,7 @@
 #pragma mark Characteristic
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
+    DebugLog(@"");
     if (peripheral ==_peripheral) {
         ZHSpecifiedServiceUpdatedBlock onfound = _characteristicsDiscoveredBlocks[service.UUID];
         if (onfound) {
@@ -234,6 +237,7 @@
 
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
+    DebugLog(@"");
     if (peripheral == _peripheral) {
         ZHCharacteristicChangeBlock onfound = _descriptorDiscoveredBlocks[characteristic.UUID];
         if (onfound) {
@@ -247,6 +251,7 @@
 #pragma mark Retrieving Characteristic and Characteristic Descriptor Values
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
+    DebugLog(@"");
     if (peripheral == _peripheral) {
         ZHCharacteristicChangeBlock onupdate = _characteristicsValueUpdatedBlocks[characteristic.UUID];
         if (onupdate) {
@@ -263,6 +268,7 @@
 
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForDescriptor:(CBDescriptor *)descriptor error:(NSError *)error
 {
+    DebugLog(@"");
     if (peripheral == _peripheral) {
         ZHDescriptorChangedBlock onupdate = _descriptorValueUpdatedBlocks[descriptor.UUID];
         if (onupdate) {
@@ -275,6 +281,7 @@
 #pragma mark Writing Characteristic and Characteristic Descriptor Values
 -(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
+    DebugLog(@"");
     if (peripheral == _peripheral) {
         ZHCharacteristicChangeBlock onwrite = _characteristicValueWrtieBlocks[characteristic.UUID];
         if (onwrite) {
@@ -287,6 +294,7 @@
 #pragma mark Managing Notifications for a Characteristic’s Value
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
+    DebugLog(@"");
     if (peripheral ==_peripheral && self.notificationStateChanged) {
         self.notificationStateChanged(characteristic,error);
     }
@@ -294,6 +302,7 @@
 
 
 - (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error {
+    DebugLog(@"");
     if (peripheral == _peripheral) {
         self.RSSI = RSSI;
         self.rssiUpdated(error,RSSI);
@@ -306,6 +315,7 @@
 
 -(void)peripheral:(CBPeripheral *)peripheral didModifyServices:(NSArray *)invalidatedServices
 {
+    DebugLog(@"");
     if (peripheral ==_peripheral && self.onServiceModified) {
         self.onServiceModified(invalidatedServices);
     }
@@ -313,6 +323,7 @@
 
 -(void)peripheralDidUpdateName:(CBPeripheral *)peripheral
 {
+    DebugLog(@"");
     if (peripheral == _peripheral && self.onNameUpdated) {
         self.onNameUpdated(nil);
     }
@@ -336,7 +347,5 @@
         }
     }
 }
-
-
 
 @end

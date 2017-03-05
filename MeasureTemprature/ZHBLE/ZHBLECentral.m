@@ -103,7 +103,7 @@
 -(void)scanPeripheralWithServices:(NSArray *)serviceUUIDs options:(NSDictionary *)options onUpdated:(ZHPeripheralUpdatedBlock)onUpdateBlock
 {
     NSAssert(onUpdateBlock !=nil, @"onUpdateBlock can not be nil");
-    [self.manager scanForPeripheralsWithServices:serviceUUIDs                                            options:options];
+    [self.manager scanForPeripheralsWithServices:serviceUUIDs options:options];
     self.onPeripheralUpdated = onUpdateBlock;
 }
 
@@ -117,7 +117,10 @@
 #pragma mark － discoverPeripheral
 
 #pragma mark Establishing or cancel with peripherals
--(void)connectPeripheral:(ZHBLEPeripheral *)peripheral options:(NSDictionary *)options onFinished:(ZHPeripheralConnectionBlock)finished onDisconnected:(ZHPeripheralConnectionBlock)onDisconnected
+-(void)connectPeripheral:(ZHBLEPeripheral *)peripheral
+                 options:(NSDictionary *)options
+              onFinished:(ZHPeripheralConnectionBlock)finished
+          onDisconnected:(ZHPeripheralConnectionBlock)onDisconnected
 {
     self.connectionFinishBlocks[peripheral.identifier] = finished;
     self.disconnectedBlocks[peripheral.identifier] = onDisconnected;
@@ -172,8 +175,15 @@
 
 
 #pragma mark -CBCentralManagerDelegate
--(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+
+// CBCentralManagerDelegate - This is called with the CBPeripheral class as its main input parameter.
+// This contains most of the information there is to know about a BLE peripheral.
+-(void)centralManager:(CBCentralManager *)central
+didDiscoverPeripheral:(CBPeripheral *)peripheral
+    advertisementData:(NSDictionary *)advertisementData
+                 RSSI:(NSNumber *)RSSI
 {
+    DebugLog(@"");
     ZHBLEPeripheral *zhPeripheral = peripheral.delegate;
     if (!zhPeripheral) {
         zhPeripheral = [[ZHBLEPeripheral alloc] initWithPeripheral:peripheral];
@@ -191,8 +201,11 @@
 
 
 #pragma mark Monitoring Connections with Peripherals
+
+// method called whenever you have successfully connected to the BLE peripheral
 -(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
+    DebugLog(@"");
     ZHBLEPeripheral *thePeripheral = peripheral.delegate;
     if (thePeripheral && [self.connectingPeripherals containsObject:thePeripheral]) {
         ZHPeripheralConnectionBlock finish = self.connectionFinishBlocks[peripheral.identifier];
@@ -218,6 +231,7 @@
 
 -(void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
+    DebugLog(@"");
     ZHBLEPeripheral *thePeripheral = peripheral.delegate;
     if (thePeripheral && [self.connectingPeripherals containsObject:thePeripheral]) {
         ZHPeripheralConnectionBlock finish = self.connectionFinishBlocks[thePeripheral.identifier];
@@ -239,6 +253,7 @@
 
 -(void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
+    DebugLog(@"");
     ZHBLEPeripheral *thePeripheral = peripheral.delegate;
     if (thePeripheral && [self.connectedPeripherals containsObject:thePeripheral]) {
         ZHPeripheralConnectionBlock finish = self.disconnectedBlocks[peripheral.identifier];
@@ -268,8 +283,11 @@
 }
 
 #pragma mark - central state delegate
+
+// method called whenever the device state changes.
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
+    DebugLog(@"");
     if (central == self.manager) {
         [self filterBluetoothState];
         switch (central.state) {

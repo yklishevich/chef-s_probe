@@ -170,6 +170,9 @@
 		52FEDD691D8ACFCE002DC18A /* LeftSideMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftSideMenuViewCell.h; path = CustomCells/LeftSideMenuViewCell.h; sourceTree = "<group>"; };
 		52FEDD6A1D8ACFCE002DC18A /* LeftSideMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftSideMenuViewCell.m; path = CustomCells/LeftSideMenuViewCell.m; sourceTree = "<group>"; };
 		89486F2CAA6FE3CE328FE499 /* Pods-Chefs_probe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefs_probe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chefs_probe/Pods-Chefs_probe.debug.xcconfig"; sourceTree = "<group>"; };
+		A3E6F6C21E6C56390074E4D7 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		A3E6F6C31E6C56390074E4D7 /* Prefix_Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix_Defines.h; sourceTree = "<group>"; };
+		A3E6F6C41E6C56390074E4D7 /* Prefix_Includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix_Includes.h; sourceTree = "<group>"; };
 		BEB62FE31E68B8F1006DD307 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachibility/Reachability.h; sourceTree = "<group>"; };
 		BEB62FE41E68B8F1006DD307 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachibility/Reachability.m; sourceTree = "<group>"; };
 		BEB62FE61E68B912006DD307 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -422,6 +425,7 @@
 		52FEDD4D1D8AB06B002DC18A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3E6F6C11E6C56390074E4D7 /* Prefix */,
 				52FEDD4E1D8AB06B002DC18A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -438,6 +442,16 @@
 				52A52FD01D97D155004FE9B5 /* VideoViewCell.m */,
 			);
 			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		A3E6F6C11E6C56390074E4D7 /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				A3E6F6C21E6C56390074E4D7 /* Prefix.pch */,
+				A3E6F6C31E6C56390074E4D7 /* Prefix_Defines.h */,
+				A3E6F6C41E6C56390074E4D7 /* Prefix_Includes.h */,
+			);
+			path = Prefix;
 			sourceTree = "<group>";
 		};
 		ADAF653F77AB102E1F70E170 /* Pods */ = {
@@ -761,6 +775,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 85EP32K774;
+				GCC_PREFIX_HEADER = MeasureTemprature/Prefix/Prefix.pch;
 				INFOPLIST_FILE = MeasureTemprature/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -779,6 +794,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 85EP32K774;
+				GCC_PREFIX_HEADER = MeasureTemprature/Prefix/Prefix.pch;
 				INFOPLIST_FILE = MeasureTemprature/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
