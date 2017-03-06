@@ -196,6 +196,13 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
     zhPeripheral.RSSI = RSSI;
     _onPeripheralUpdated(zhPeripheral,advertisementData);
     
+    
+#if DEBUG
+    [self.manager stopScan];
+//    self.polarH7HRMPeripheral = peripheral;
+//    peripheral.delegate = self;
+    [self.manager connectPeripheral:peripheral options:nil];
+#endif
 }
 
 
@@ -203,7 +210,8 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
 #pragma mark Monitoring Connections with Peripherals
 
 // method called whenever you have successfully connected to the BLE peripheral
--(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+-(void)centralManager:(CBCentralManager *)central
+ didConnectPeripheral:(CBPeripheral *)peripheral
 {
     DebugLog(@"");
     ZHBLEPeripheral *thePeripheral = peripheral.delegate;
@@ -223,13 +231,13 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
         if (finish) {
             finish(thePeripheral,nil);
             [self.connectionFinishBlocks removeObjectForKey:peripheral.identifier];
-        }
-        
-        
+        }   
     }
 }
 
--(void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+-(void)centralManager:(CBCentralManager *)central
+didFailToConnectPeripheral:(CBPeripheral *)peripheral
+                error:(NSError *)error
 {
     DebugLog(@"");
     ZHBLEPeripheral *thePeripheral = peripheral.delegate;
