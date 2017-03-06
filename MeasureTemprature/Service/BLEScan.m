@@ -76,13 +76,16 @@
     //CBUUID *uuid = [CBUUID UUIDWithString:TRANSFER_SERVICE_UUID];// You can use it test custom services
     NSArray *uuids = nil;//@[uuid];
     
-    [self.central scanPeripheralWithServices:uuids options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @(YES)} onUpdated:^(ZHBLEPeripheral *peripheral,NSDictionary *data){
-        if (peripheral) {
-            
-            peripheral.advertisementData = data;
-            [weakSelf addPeripheralToFindDevice:peripheral];
-        }
-    }];    
+#warning uncomment
+//    [self.central scanPeripheralWithServices:uuids
+//                                     options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @(YES)}
+//                                   onUpdated:^(ZHBLEPeripheral *peripheral,NSDictionary *data){
+//        if (peripheral) {
+//            
+//            peripheral.advertisementData = data;
+//            [weakSelf addPeripheralToFindDevice:peripheral];
+//        }
+//    }];    
 }
 
 - (void)addPeripheralToFindDevice:(ZHBLEPeripheral *)peripheral {

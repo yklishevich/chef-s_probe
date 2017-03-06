@@ -8,10 +8,14 @@
 
 
 #import "ZHBLECentral.h"
+
 #import <UIKit/UIKit.h>
+
 #import "ZHBLEStoredPeripherals.h"
 #import "ZHBLEPeripheral.h"
 #import "ZHBLEManager.h"
+#import "Constants.h"
+
 
 @interface ZHBLECentral()<CBCentralManagerDelegate,CBPeripheralDelegate>
 @end
@@ -67,6 +71,8 @@
     self.connectionFinishBlocks = [NSMutableDictionary dictionary];
     self.disconnectedBlocks     = [NSMutableDictionary dictionary];
     [ZHBLEStoredPeripherals initializeStorage];//初始化存储
+    
+//    [NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRecieveNotification:) name:<#(nullable NSNotificationName)#> object:<#(nullable id)#>
 }
 
 -(CBCentralManager *)manager
@@ -100,8 +106,21 @@
 
 #pragma mark -Scanning or stopping Scan of Peripheral
 
--(void)scanPeripheralWithServices:(NSArray *)serviceUUIDs options:(NSDictionary *)options onUpdated:(ZHPeripheralUpdatedBlock)onUpdateBlock
+// "F18D63AE-CADC-11E3-AAAB-1A514932AC01" UUID of service provided by sensor, but scanning with this UUID doesn't work!
+// Correct value is "F18D63AE-CADC-11E3-AACB-1A514932AC01" founded during debugging
+// 62034940-77C7-4EDC-AB24-5613211AD100, "Device Information", "00001016-D102-11E1-9B23-00025B00A5A5" - additional services,
+//     founded during debugging.
+-(void)scanPeripheralWithServices:(NSArray *)serviceUUIDs
+                          options:(NSDictionary *)options
+                        onUpdated:(ZHPeripheralUpdatedBlock)onUpdateBlock
 {
+    DebugLog(@"");
+    
+#if DEBUG 
+    serviceUUIDs = @[[CBUUID UUIDWithString:@"F18D63AE-CADC-11E3-AACB-1A514932AC01"]];
+    options = nil;
+#endif
+    
     NSAssert(onUpdateBlock !=nil, @"onUpdateBlock can not be nil");
     [self.manager scanForPeripheralsWithServices:serviceUUIDs options:options];
     self.onPeripheralUpdated = onUpdateBlock;
@@ -183,7 +202,7 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
     advertisementData:(NSDictionary *)advertisementData
                  RSSI:(NSNumber *)RSSI
 {
-    DebugLog(@"");
+    DebugLog(@"Discover peripheral with name: '%@'", peripheral.name);
     ZHBLEPeripheral *zhPeripheral = peripheral.delegate;
     if (!zhPeripheral) {
         zhPeripheral = [[ZHBLEPeripheral alloc] initWithPeripheral:peripheral];
@@ -198,10 +217,8 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
     
     
 #if DEBUG
-    [self.manager stopScan];
-//    self.polarH7HRMPeripheral = peripheral;
-//    peripheral.delegate = self;
-    [self.manager connectPeripheral:peripheral options:nil];
+//        [self.manager stopScan];
+        [self.manager connectPeripheral:peripheral options:nil];
 #endif
 }
 
@@ -213,7 +230,7 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
 -(void)centralManager:(CBCentralManager *)central
  didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    DebugLog(@"");
+    DebugLog(@"Did connect peripheral with name '%@'", peripheral.name);
     ZHBLEPeripheral *thePeripheral = peripheral.delegate;
     if (thePeripheral && [self.connectingPeripherals containsObject:thePeripheral]) {
         ZHPeripheralConnectionBlock finish = self.connectionFinishBlocks[peripheral.identifier];
@@ -233,6 +250,10 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
             [self.connectionFinishBlocks removeObjectForKey:peripheral.identifier];
         }   
     }
+    
+#if DEBUG
+    [self.manager cancelPeripheralConnection:peripheral];
+#endif
 }
 
 -(void)centralManager:(CBCentralManager *)central
@@ -261,7 +282,16 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
 
 -(void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-    DebugLog(@"");
+    DebugLog(@"Error: '%@'", error);
+    
+#if DEBUG
+    [self.manager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"F18D63AE-CADC-11E3-AACB-1A514932AC01"]]
+                                         options:nil];
+#endif
+    
+
+    
+    
     ZHBLEPeripheral *thePeripheral = peripheral.delegate;
     if (thePeripheral && [self.connectedPeripherals containsObject:thePeripheral]) {
         ZHPeripheralConnectionBlock finish = self.disconnectedBlocks[peripheral.identifier];

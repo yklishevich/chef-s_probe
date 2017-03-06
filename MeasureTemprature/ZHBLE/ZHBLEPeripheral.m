@@ -196,12 +196,22 @@
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
     DebugLog(@"");
+    
+#if DEBUG 
+    for (CBService *service in peripheral.services) {
+        DebugLog(@"Discovered service: %@", service.UUID);
+        [peripheral discoverCharacteristics:nil forService:service];
+    }
+#endif
+    
     if (error) {
         [self cleanup];
     }
     if (peripheral == _peripheral) {
-        self.didFinishServiceDiscovery(error);
-        self.didFinishServiceDiscovery = nil;
+        if (self.didFinishServiceDiscovery != nil) {
+            self.didFinishServiceDiscovery(error);
+            self.didFinishServiceDiscovery = nil;
+        }
     }
 }
 
@@ -223,7 +233,16 @@
 #pragma mark Characteristic
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
-    DebugLog(@"");
+    DebugLog(@"Did discover characteristics '%@'", service.characteristics);
+#if DEBUG
+    for (CBCharacteristic *aChar in service.characteristics)
+    {
+        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"F18D68AE-CADC-11E3-AACB-1A514932AC01"]]) {
+            [peripheral setNotifyValue:YES forCharacteristic:aChar];
+        }
+    }
+#endif
+    
     if (peripheral ==_peripheral) {
         ZHSpecifiedServiceUpdatedBlock onfound = _characteristicsDiscoveredBlocks[service.UUID];
         if (onfound) {
@@ -251,13 +270,15 @@
 #pragma mark Retrieving Characteristic and Characteristic Descriptor Values
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-    DebugLog(@"");
+    DebugLog(@"Value: %@", characteristic.value);
+    
     if (peripheral == _peripheral) {
         ZHCharacteristicChangeBlock onupdate = _characteristicsValueUpdatedBlocks[characteristic.UUID];
         if (onupdate) {
             onupdate(characteristic,error);
             [_characteristicsValueUpdatedBlocks removeObjectForKey:characteristic.UUID];
-        }else{
+        }
+        else{
             onupdate = self.characteristicsNotifyBlocks[characteristic.UUID];
             if (onupdate) {
                 onupdate(characteristic,error);
@@ -294,7 +315,7 @@
 #pragma mark Managing Notifications for a Characteristic’s Value
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-    DebugLog(@"");
+    DebugLog(@"Characteristic: %@", characteristic);
     if (peripheral ==_peripheral && self.notificationStateChanged) {
         self.notificationStateChanged(characteristic,error);
     }
@@ -323,7 +344,7 @@
 
 -(void)peripheralDidUpdateName:(CBPeripheral *)peripheral
 {
-    DebugLog(@"");
+    DebugLog(@"Peripheral name: %@", peripheral.name);
     if (peripheral == _peripheral && self.onNameUpdated) {
         self.onNameUpdated(nil);
     }
