@@ -200,6 +200,7 @@ xcuserdata
 #
 #Pods/
 !Podfile.lock
+!Pods/Manifest.lock
 #
 # RUBY:
 #
