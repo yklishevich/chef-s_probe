@@ -114,12 +114,18 @@
                           options:(NSDictionary *)options
                         onUpdated:(ZHPeripheralUpdatedBlock)onUpdateBlock
 {
-    DebugLog(@"");
     
 #if DEBUG 
-    serviceUUIDs = @[[CBUUID UUIDWithString:@"F18D63AE-CADC-11E3-AACB-1A514932AC01"]];
-    options = nil;
+    NSString *const kTemperatureMeasumentServiceUUID = @"F18D63AE-CADC-11E3-AACB-1A514932AC01";
+    serviceUUIDs = @[[CBUUID UUIDWithString:kTemperatureMeasumentServiceUUID]];
+//    serviceUUIDs = @[
+//                     [CBUUID UUIDWithString:@"180A"],
+//                     [CBUUID UUIDWithString:@"D0611E78-BBB4-4591-A5F8-487910AE4366"]
+//                     ];
+    options = @{CBCentralManagerScanOptionAllowDuplicatesKey: @(NO)};
 #endif
+    
+    DebugLog(@"Start scan with service UUIDs: '%@, options: '%@'.'", serviceUUIDs, options);
     
     NSAssert(onUpdateBlock !=nil, @"onUpdateBlock can not be nil");
     [self.manager scanForPeripheralsWithServices:serviceUUIDs options:options];
@@ -203,6 +209,10 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
                  RSSI:(NSNumber *)RSSI
 {
     DebugLog(@"Discover peripheral with name: '%@'", peripheral.name);
+#if DEBUG
+    printf("Discover peripheral with name: '%s'", [[NSString stringWithFormat:@"text"] cStringUsingEncoding:NSUTF8StringEncoding]);
+#endif
+    
     ZHBLEPeripheral *zhPeripheral = peripheral.delegate;
     if (!zhPeripheral) {
         zhPeripheral = [[ZHBLEPeripheral alloc] initWithPeripheral:peripheral];
@@ -218,7 +228,7 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
     
 #if DEBUG
 //        [self.manager stopScan];
-        [self.manager connectPeripheral:peripheral options:nil];
+//        [self.manager connectPeripheral:peripheral options:nil];
 #endif
 }
 
@@ -253,6 +263,7 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
     
 #if DEBUG
     [self.manager cancelPeripheralConnection:peripheral];
+//    [peripheral discoverServices:nil];
 #endif
 }
 
@@ -285,7 +296,10 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
     DebugLog(@"Error: '%@'", error);
     
 #if DEBUG
-    [self.manager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"F18D63AE-CADC-11E3-AACB-1A514932AC01"]]
+    NSDictionary *services = @[
+//                               [CBUUID UUIDWithString:@"F18D63AE-CADC-11E3-AACB-1A514932AC01"]
+                               ];
+    [self.manager scanForPeripheralsWithServices:services
                                          options:nil];
 #endif
     

@@ -199,7 +199,7 @@
     
 #if DEBUG 
     for (CBService *service in peripheral.services) {
-        DebugLog(@"Discovered service: %@", service.UUID);
+        DebugLog(@"Discovered service: '%@'. Service UUID: '%@' ", service.UUID, service.UUID.UUIDString);
         [peripheral discoverCharacteristics:nil forService:service];
     }
 #endif

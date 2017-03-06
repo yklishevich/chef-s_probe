@@ -516,7 +516,7 @@
 				TargetAttributes = {
 					52FEDD491D8AB06A002DC18A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 85EP32K774;
+						DevelopmentTeam = G4747YFB3F;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -774,7 +774,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 85EP32K774;
+				DEVELOPMENT_TEAM = G4747YFB3F;
 				GCC_PREFIX_HEADER = MeasureTemprature/Prefix/Prefix.pch;
 				INFOPLIST_FILE = MeasureTemprature/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -793,7 +793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 85EP32K774;
+				DEVELOPMENT_TEAM = G4747YFB3F;
 				GCC_PREFIX_HEADER = MeasureTemprature/Prefix/Prefix.pch;
 				INFOPLIST_FILE = MeasureTemprature/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
